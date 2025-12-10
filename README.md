@@ -31,7 +31,20 @@ I compared two models to solve the classification problem:
 ### 3. Opening the "Black Box" (XAI)
 Using **SHAP (SHapley Additive exPlanations)**, I translated the Random Forest's decisions into human-readable insights.
 
+#### A. Global Drivers (The "Big Picture")
+First, I identified what drives attrition across the entire company.
+* **Monthly Income:** Low income is the #1 predictor.
+* **Overtime:** A major risk factor.
+
 ![SHAP Summary Plot](shap_summary_plot.png)
+
+#### B. Individual Risk Profiling (Real-world Case Study)
+The model can also explain the specific reasons behind **one individual's** risk score.
+* **Example:** *High Risk Employee* (Prediction: 54% probability of leaving).
+* **Reasoning:** Despite having a good `JobSatisfaction`, the model flagged them because of **Low Income** (blue bar) and **Short Tenure** (blue bar).
+* **Actionable Insight:** This allows HR to intervene proactively with a targeted salary adjustment or retention bonus.
+
+![Individual Case Analysis](shap_force_plot1.png)
 
 ---
 
