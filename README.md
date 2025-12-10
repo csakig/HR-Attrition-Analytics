@@ -1,32 +1,73 @@
-# 📊 HR Attrition Analytics & Decision Support
+# 📊 HR Attrition Analytics & Decision Support System
 
 ![Dashboard Preview](dashboard_preview.png)
 
-## 📌 Project Overview
-This project focuses on **predicting employee turnover** (attrition) and identifying key drivers of churn using data science techniques. It serves as a practical demonstration of **Data-Driven HR Decision Support**.
+## 🎓 About This Project
+This repository contains the practical analysis and source code for my **Bachelor Thesis**: *"Data-Driven HR Decision Support: Predicting Employee Turnover with Machine Learning"*.
 
-The analysis is based on the **IBM HR Analytics Dataset** and covers the full data pipeline from cleaning to predictive modeling and interactive visualization.
+The goal was not just to build a model, but to create an interpretible **Decision Support System** that bridges the gap between complex algorithms and HR strategy, specifically adapted to the challenges of the **Hungarian labor market** (labor shortage, retention issues).
 
-## 🛠️ Tech Stack & Tools
-* **Python:** Data Cleaning, EDA, Feature Engineering
-* **Machine Learning:** Scikit-learn (Logistic Regression vs. Random Forest)
-* **Explainable AI (XAI):** SHAP (SHapley Additive exPlanations) for model interpretation
-* **Visualization:** Matplotlib, Seaborn
-* **Business Intelligence:** Microsoft Power BI (Interactive Dashboard)
+---
 
-## 📂 Repository Contents
-* `Employee_Attrition_Prediction_with_ML_and_SHAP.ipynb`: The complete Python source code with detailed explanations.
-* `HR_Attrition_Analytics_Dashboard.pbix`: The interactive Power BI dashboard file.
-* `ibm_attrition_for_powerbi.csv`: The processed dataset used for the dashboard.
+## 📉 The Business Problem
+Employee turnover is costly. Traditional HR relies on intuition ("gut feeling"), but this project aims to transition to **Evidence-Based Management**.
+* **Dataset:** IBM HR Analytics Employee Attrition & Performance (1,470 records).
+* **Challenge:** Imbalanced dataset (only ~16% attrition), requiring specialized handling strategies.
 
-## 🔍 Key Findings
-1.  **Income & Tenure:** Low monthly income and the first 1-2 years at the company are the highest risk factors.
-2.  **Overtime:** Employees working overtime are **3x more likely** to leave.
-3.  **Role Specifics:** Sales Representatives have a critical attrition rate (~40%).
+---
 
-## 🚀 How to Use
-1.  View the **Python Notebook** directly here on GitHub to see the code logic.
-2.  Download the **.pbix file** to explore the interactive dashboard (requires Power BI Desktop).
+## 🛠️ Data Science Methodology
+
+### 1. Exploratory Data Analysis (EDA)
+Before modeling, I identified key risk factors using statistical analysis:
+* **The "First-Year Trap":** Attrition risk is highest in the first 1-2 years, highlighting critical failures in **onboarding processes**.
+* **Role Hotspots:** *Sales Representatives* showed a critical attrition rate of ~40%.
+
+### 2. Model Selection: The Precision-Recall Trade-off
+I compared two models to solve the classification problem:
+* **Logistic Regression:** High Recall (found most leavers) but low Precision (too many false alarms).
+* **Random Forest (Selected):** Optimized with class weighting. While it had lower Recall, it achieved **high Precision (67%)**, making it a "surgical tool" for HR—identifying high-risk employees with minimal false positives.
+
+### 3. Opening the "Black Box" (XAI)
+Using **SHAP (SHapley Additive exPlanations)**, I translated the Random Forest's decisions into human-readable insights.
+
+![SHAP Summary Plot](shap_summary_plot.png)
+
+---
+
+## 🔍 Key Findings & Strategic Recommendations
+
+Based on the model interpretation and the Hungarian market context, I formulated the following strategic recommendations:
+
+### 💡 1. Rethink Compensation (Herzberg's Theory)
+The analysis revealed a non-linear relationship between income and retention.
+* **Finding:** Retention risk drops sharply as salary increases but plateaus around $7,000/month.
+* **Recommendation:** Salary increases are vital up to a "hygiene threshold," but beyond that, other incentives (work-life balance, career growth) become more cost-effective.
+
+![Income Distribution](income_dist_kde.png)
+
+### 🔥 2. Tackle the Burnout Crisis
+* **Finding:** Employees working overtime are **3x more likely to leave**.
+* **Recommendation:** Implement strict overtime monitoring. In the Hungarian SME context, where "hustle culture" is common, this is a primary driver of churn.
+
+![Overtime Impact](overtime_impact.png)
+
+### ⚓ 3. Create "Long-Term Anchors"
+* **Finding:** Stock Option Levels were a top 3 predictor for retention.
+* **Adaptation:** Since Stock Options are rare in Hungarian SMEs, I recommend substituting them with **loyalty bonuses** or tenure-based benefits to simulate the same "anchoring" effect.
+
+---
+
+## 💻 Tech Stack
+* **Language:** Python 3.x
+* **Libraries:** Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, SHAP
+* **Visualization:** Power BI (Interactive Dashboard)
+
+## 📂 Repository Structure
+* `Employee_Attrition_Prediction_with_ML_and_SHAP.ipynb`: End-to-end Python analysis.
+* `HR_Attrition_Analytics_Dashboard.pbix`: Power BI file for executive reporting.
+* `ibm_attrition_for_powerbi.csv`: Processed dataset.
+
 
 ---
 *Created by csakig*
