@@ -18,7 +18,6 @@ The analysis is based on the **IBM HR Analytics Dataset** and covers the full da
 * `Employee_Attrition_Prediction_with_ML_and_SHAP.ipynb`: The complete Python source code with detailed explanations.
 * `HR_Attrition_Analytics_Dashboard.pbix`: The interactive Power BI dashboard file.
 * `ibm_attrition_for_powerbi.csv`: The processed dataset used for the dashboard.
-* `Thesis_HR_Analytics.pdf`: The full thesis documentation (Theory & Methodology).
 
 ## 🔍 Key Findings
 1.  **Income & Tenure:** Low monthly income and the first 1-2 years at the company are the highest risk factors.
@@ -28,7 +27,6 @@ The analysis is based on the **IBM HR Analytics Dataset** and covers the full da
 ## 🚀 How to Use
 1.  View the **Python Notebook** directly here on GitHub to see the code logic.
 2.  Download the **.pbix file** to explore the interactive dashboard (requires Power BI Desktop).
-3.  Read the **Thesis PDF** for the theoretical background and Hungarian context analysis.
 
 ---
 *Created by csakig*
